@@ -16,4 +16,9 @@ pokemon.route('/')
     res.status(200).json(pokemons)
  })
 
+ pokemon.route('/:id')
+ .get((req, res) => {
+    res.status(200).json({id: req.params.id});
+ })
+
  module.exports = pokemon
