@@ -18,9 +18,11 @@ pokemon.route('/')
 .get((req, res) => {
    res.status(200).json(pokemons)
 })
- .post((req, res) => {
+.post((req, res) => {
          res.status(200).json({pokemon: pokemons})
      })
+     
+pokemon.route('/create')
 .post((req,res) => {
     const newPokemon = req.body
         
@@ -28,7 +30,8 @@ pokemon.route('/')
         if(err){
             res.status(400).json({message: err.message})
         } else {
-            res.status(201).json({pokemon})
+            console.log("pokemon created successfully")
+            res.status(201).json({newPokemon})
         }
     })
 })
